@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+
+{% block title %}Signup{% endblock %}
+
+{% block content %}
+<div class="signup-wrapper">
+    <div class="signup-box">
+        <div class="logo">
+            <h1>Pothole Detector</h1>
+        </div>
+        <h2>Create an Account</h2>
+        <p class="subtext">Sign up to access the application</p>
+        <form method="post" class="signup-form">
+            {% csrf_token %}
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <div class="input-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password" required>
+            </div>
+            <button type="submit" class="btn-signup">Sign Up</button>
+        </form>
+        <p class="footer-text">Already have an account? <a href="{% url 'login' %}">Log In</a></p>
+    </div>
+</div>
+
+<style>
+    /* Same styles as login.html, with slight adjustments for signup */
+    body {
+        margin: 0;
+        font-family: 'Roboto', Arial, sans-serif;
+        background: linear-gradient(to right, #42a5f5, #86c5ff);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: #fff;
+    }
+
+    .signup-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .signup-box {
+        background: #fff;
+        color: #333;
+        border-radius: 15px;
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        padding: 30px;
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+    }
+
+    .logo h1 {
+        font-size: 2rem;
+        color: #42a5f5;
+        margin-bottom: 10px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+
+    .subtext {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    .signup-form {
+        margin-top: 15px;
+    }
+
+    .input-group {
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    .input-group label {
+        display: block;
+        font-size: 0.9rem;
+        margin-bottom: 5px;
+        color: #666;
+    }
+
+    .input-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-size: 1rem;
+    }
+
+    .input-group input:focus {
+        border-color: #42a5f5;
+        outline: none;
+        box-shadow: 0 0 5px rgba(66, 165, 245, 0.5);
+    }
+
+    .btn-signup {
+        background: #42a5f5;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background 0.3s ease;
+        width: 100%;
+    }
+
+    .btn-signup:hover {
+        background: #357abf;
+    }
+
+    .footer-text {
+        margin-top: 15px;
+        font-size: 0.9rem;
+        color: #666;
+    }
+
+    .footer-text a {
+        color: #42a5f5;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .footer-text a:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}

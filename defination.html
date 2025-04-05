@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Pothole Information{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="container py-5">
+    <!-- Hero Section -->
+    <div class="row align-items-center mb-5">
+        <div class="col-md-6 text-center text-md-left">
+            <h1 class="display-4 font-weight-bold text-primary">What is a Pothole?</h1>
+            <p class="lead mt-3 text-muted">
+                A pothole is a depression or hole in a road surface caused by wear, weather conditions, and the gradual breakdown of materials. 
+                Potholes often lead to unsafe driving conditions, causing discomfort and potential hazards for road users.
+            </p>
+            <a href="{% url 'upload_image' %}" class="btn btn-primary btn-lg mt-4">Get Started</a>
+        </div>
+        <div class="col-md-6 text-center">
+            <img src="{% static 'images/pothole_image.jpg' %}" alt="Pothole Illustration" class="img-fluid rounded">
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="row text-center mb-5">
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <i class="fas fa-camera fa-3x text-primary mb-3"></i>
+                    <h5 class="card-title font-weight-bold">Upload Images</h5>
+                    <p class="card-text text-muted">Easily upload road images to detect potholes using advanced AI.</p>
+                    <a href="{% url 'upload_image' %}" class="btn btn-outline-primary btn-sm">Upload Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <i class="fas fa-history fa-3x text-primary mb-3"></i>
+                    <h5 class="card-title font-weight-bold">View History</h5>
+                    <p class="card-text text-muted">Access past detection results and manage your analysis records.</p>
+                    <a href="{% url 'detection_history' %}" class="btn btn-outline-primary btn-sm">View History</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-body">
+                    <i class="fas fa-sign-out-alt fa-3x text-primary mb-3"></i>
+                    <h5 class="card-title font-weight-bold">Logout Securely</h5>
+                    <p class="card-text text-muted">End your session securely to protect your account information.</p>
+                    <a href="{% url 'logout' %}" class="btn btn-outline-primary btn-sm">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center py-4 bg-light rounded shadow-sm">
+        <h3 class="font-weight-bold text-secondary">Let's make our roads safer together!</h3>
+        <p class="text-muted">Start detecting potholes now and contribute to better road safety for everyone.</p>
+        <a href="{% url 'upload_image' %}" class="btn btn-success btn-lg">Detect Potholes</a>
+    </div>
+</div>
+{% endblock %}
